@@ -20,7 +20,8 @@ void printMap(){
 	std::cout << mapf <<"\n\n"<<map2<<"\n\n"<<map3<<"\n\n"<<map4<<"\n\n"<<mapl<<"\n";
 } 
 int generateOriginalMap(int n){
-	for(int i=0; i<n; i++){
+	mapf="¡° ";
+	for(int i=0; i<n-1; i++){
 		mapf += "¡³ ";
 	} 
 	for(int i=0; i<n; i++){
