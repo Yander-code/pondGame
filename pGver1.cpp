@@ -9,10 +9,10 @@ void gameIntro(){
 	std::cout << "圖示說明: ●:你的位置 ○:空地 ※:起點 ☆:命運 ★:機會" << std::endl; 
 }
 
-int dice(){
+int dice(int k){
 	srand(time(0));
-	int num = rand()%6+1;
-    std::cout << num << std::endl;
+	int num = rand()%k+1;
+    std::cout << "骰子點數: " << num << std::endl;
 
     return num;
 }
@@ -20,6 +20,7 @@ void printMap(){
 	std::cout << mapf <<"\n\n"<<map2<<"\n\n"<<map3<<"\n\n"<<map4<<"\n\n"<<mapl<<"\n";
 } 
 int generateOriginalMap(int n){
+	
 	mapf="※ ";
 	for(int i=0; i<n-1; i++){
 		mapf += "○ ";
@@ -47,7 +48,7 @@ int main(){
 
 	printMap();
 	
-	dice();
+	dice(6);
 	
 	
 	return 0;
