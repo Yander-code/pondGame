@@ -6,7 +6,7 @@
 std::string mapf, mapl, map2, map3, map4;
 
 void gameIntro(){
-	std::cout << "圖示說明: ●:你的位置 ○:空地 ※:起點 ☆:命運 ★:機會" << std::endl; 
+	std::cout << "圖示說明: A:A玩家的位置 B:B玩家的位置 ○:埤塘" << std::endl; 
 }
 
 int dice(int k){
@@ -44,11 +44,39 @@ int generateOriginalMap(int n){
 int main(){
 	gameIntro();
 	
-	generateOriginalMap(20);
+	generateOriginalMap(6);
 
 	printMap();
 	
-	dice(6);
+	int aMoney=0, bMoney=0;
+	int aLoc=0, bLoc=0;
+	int lastLoc=0; 
+	while(1){
+		std::cout << "輪到A玩家擲骰子(請按任意按鍵): \n";
+		std::string temp;
+		std::cin >> temp;
+		aLoc += 17;
+		
+		if(aLoc%18 <= 5){
+			if(lastLoc!=0){
+				mapf[lastLoc%18] = '○';
+			}
+			mapf[(aLoc*3)%18] = '※';
+			lastLoc=aLoc*3;
+			printMap();
+		}else if(aLoc%18 == 6 || aLoc%18 == 17){
+			if(lastLoc!=0){
+				mapf[lastLoc%18] = '○';
+			}
+			if(aLoc%18 == 6){
+				map2[0]='○';
+			}else{
+				map2[10]='○';
+			}
+			lastLoc=aLoc;
+			printMap();
+		}
+	}
 	
 	
 	return 0;
