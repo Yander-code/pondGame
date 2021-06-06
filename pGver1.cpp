@@ -146,6 +146,7 @@ void printPondInfmap(){
 } 
 
 int main(){
+	
 	gameIntro();
 	
 	generateOriginalMap(25);
